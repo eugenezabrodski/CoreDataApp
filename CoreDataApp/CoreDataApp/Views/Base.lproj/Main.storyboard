@@ -10,7 +10,7 @@
         <!--Categories-->
         <scene sceneID="eow-H0-Ofu">
             <objects>
-                <tableViewController id="f1E-ZG-g9U" sceneMemberID="viewController">
+                <tableViewController id="f1E-ZG-g9U" customClass="CategoryViewController" customModule="CoreDataApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="a7K-Wp-hdR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,13 @@
                             <outlet property="delegate" destination="f1E-ZG-g9U" id="h2s-dd-w1s"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Categories" id="UM4-1d-WyQ"/>
+                    <navigationItem key="navigationItem" title="Categories" id="UM4-1d-WyQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WWn-ct-kjq">
+                            <connections>
+                                <action selector="addNewCategory:" destination="f1E-ZG-g9U" id="DYx-Un-kOn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Pki-uV-ocM" kind="show" identifier="showItemsSegue" id="3WR-A7-Wo9"/>
                     </connections>
@@ -39,17 +45,25 @@
             </objects>
             <point key="canvasLocation" x="505" y="98"/>
         </scene>
-        <!--Table View Controller-->
+        <!--To Do List View Controller-->
         <scene sceneID="aBf-uh-2X1">
             <objects>
-                <tableViewController id="Pki-uV-ocM" sceneMemberID="viewController">
+                <tableViewController id="Pki-uV-ocM" customClass="ToDoListViewController" customModule="CoreDataApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="x1p-M1-r8x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="lXd-3j-5Fb">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Pki-uV-ocM" id="Ohy-gi-q4C"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="clF-zP-ROe">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="clF-zP-ROe" id="vEf-7X-Dty">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -62,7 +76,13 @@
                             <outlet property="delegate" destination="Pki-uV-ocM" id="U3N-JS-anJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="y5h-mK-OOI"/>
+                    <navigationItem key="navigationItem" id="y5h-mK-OOI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="R4s-r2-jcy">
+                            <connections>
+                                <action selector="addItem:" destination="Pki-uV-ocM" id="Kf5-8d-Qp3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3N-Vu-HtY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
